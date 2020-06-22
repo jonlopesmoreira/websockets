@@ -20,6 +20,7 @@ io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`);
     socket.on('sendMessage', data => {
         messages.push(data);
+        socket.broadcast.emit('receivedMessage', data);
     });
 });
 server.listen(3000);
