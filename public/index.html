@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script> <!--Para nao ter necesidade de baixar-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,7 +17,7 @@
     </form>
 
     <script type="text/javascript">
-        var socket = io('http://localhost:3000');
+        var socket = io('http://localhost:3000'); // ouvindo a conexao via socket
 
         function renderMessage(message){
             $('.messages').append('<div class="message"><strong>' + message.author +'</strong>: ' + message.message +'</div>');
@@ -43,7 +43,7 @@
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
 
-            if (author.length && message.length)
+            if (author.length && message.length) // websockets nao se limitam a strings e numeros
             {
                 var messageObject = {
                     author: author,
